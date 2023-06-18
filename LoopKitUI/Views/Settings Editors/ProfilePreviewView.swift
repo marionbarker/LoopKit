@@ -12,7 +12,7 @@ import HealthKit
 import LoopKit
 
 struct ProfilePreviewView: View {
-    @EnvironmentObject private var displayGlucoseUnitObservable: DisplayGlucoseUnitObservable
+    @EnvironmentObject private var displayGlucosePreference: DisplayGlucosePreference
     @ObservedObject var viewModel: ProfileViewModel
     @Environment(\.dismissAction) var dismissAction
     @Environment(\.presentationMode) var presentationMode
@@ -247,7 +247,7 @@ struct SectionWithContent<Content>: View where Content: View {
 extension ProfilePreviewView {
 
     private var glucoseUnit: HKUnit {
-        displayGlucoseUnitObservable.displayGlucoseUnit
+        displayGlucosePreference.unit
     }
 
     private var sensitivityUnit: HKUnit {
